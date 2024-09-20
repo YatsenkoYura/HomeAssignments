@@ -1,10 +1,8 @@
-//
-// Created by KanoWare on 9/16/2024.
-//
-#include "greetWord.h"
+
+#include "greeting.h"
 #include<iostream>
 
 using namespace std;
-void greeting(string word){
-    cout << endl << "Hello, " << word << "!" << endl;
+void greeting(string hello){
+    cout << endl << "Hello " << hello << endl;
 }

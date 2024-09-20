@@ -1,20 +1,18 @@
-/*
-Yuriy Yatsenko 135624@student.spbu.ru
-hello world project
- */
+//Yuriy Yatsenko 135624@student.spbu.ru
+//hello world project
+
 
 #include <iostream>
-#include "greetWord.h"
+#include "greeting.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
+    greeting("world!");
     string word;
     while (true) {
         cout << "Input: ";
-        getline(cin, word);
-        greetWord(word);
+        cin >> word;
+        greeting(word);
     }
-    return 0;
 }
