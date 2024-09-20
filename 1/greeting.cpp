@@ -5,6 +5,6 @@
 #include<iostream>
 
 using namespace std;
-void greetWord(string word){
+void greeting(string word){
     cout << endl << "Hello, " << word << "!" << endl;
 }
