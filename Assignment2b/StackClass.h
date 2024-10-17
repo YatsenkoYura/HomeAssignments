@@ -1,8 +1,21 @@
-//
-// Created by KanoWare on 10/13/2024.
-//
+#include<iostream>
 
-#ifndef ___STACKCLASS_H
-#define ___STACKCLASS_H
+#ifndef STACKCLASS_H
+#define STACKCLASS_H
 
-#endif //___STACKCLASS_H
+
+class StackClass{
+private:
+    int top;
+    int capacity;
+    int* array;
+    void Push(int x);
+
+public:
+    StackClass(int size);
+    ~StackClass();
+    void Push(std::string x);
+    int Pop();
+    int GetTopElement();
+};
+#endif STACKCLASS_H
