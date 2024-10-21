@@ -1,10 +1,11 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 2b
 #include<iostream>
 #include "StackClass.h"
 #include <sstream>
 #include <vector>
 
 int main(){
-
     std::string input_string;
     std::cout << "Enter string:";
     std::getline(std::cin, input_string);
@@ -23,7 +24,8 @@ int main(){
         stack.Push(words[i]);
     }
 
-    std::cout << stack.GetTopElement() <<std::endl;
+    std::cout << stack.GetTopElement() << std::endl;
 
+    return 0;
 }
 

@@ -1,21 +1,20 @@
-#include<iostream>
-
 #ifndef STACKCLASS_H
 #define STACKCLASS_H
 
+#include <string>
 
-class StackClass{
+class StackClass {
 private:
-    int top;
+    float* array;
     int capacity;
-    int* array;
-    void Push(int x);
+    int top;
 
 public:
     StackClass(int size);
     ~StackClass();
+    void Push(float x);
     void Push(std::string x);
-    int Pop();
-    int GetTopElement();
+    float Pop();
+    float GetTopElement();
 };
-#endif STACKCLASS_H
+#endif //STACKCLASS_H

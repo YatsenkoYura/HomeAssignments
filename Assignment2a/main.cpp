@@ -1,4 +1,5 @@
-
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 2a
 #include <iostream>
 #include <fstream>
 #include <filesystem>

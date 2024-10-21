@@ -1,7 +1,7 @@
 #include "StackClass.h"
 
 StackClass::StackClass(int size){
-    array = new int[size];
+    array = new float[size];
     capacity = size;
     top = -1;
 }
@@ -10,43 +10,41 @@ StackClass::~StackClass(){
     delete[] array;
 }
 
-
-int StackClass::Pop(){
-    int poppedValue = array[top];
+float StackClass::Pop(){
+    float poppedValue = array[top];
     top--;
     return poppedValue;
 }
 
-void StackClass::Push(int x){
+void StackClass::Push(float x){
     array[++top] = x;
 }
 
-int StackClass::GetTopElement(){
-    int element = array[top];
+float StackClass::GetTopElement(){
+    float element = array[top];
     return element;
 }
 
 void StackClass::Push(std::string x){
     if (x != "+" && x != "-" && x != "/" && x != "*") {
-        array[++top] = std::stoi(x);
+        array[++top] = std::stof(x);
     }
-    if (x == "+") {
+    else if (x == "+") {
         Push(Pop() + Pop());
     }
     else if (x == "-") {
-        int a = Pop();
-        int b = Pop();
+        float a = Pop();
+        float b = Pop();
         Push(b - a);
     }
-    if (x == "*") {
+    else if (x == "*") {
         Push(Pop() * Pop());
     }
     else if (x == "/") {
-        int a = Pop();
-        int b = Pop();
+        float a = Pop();
+        float b = Pop();
         Push(b / a);
     }
-
 }
 
 
