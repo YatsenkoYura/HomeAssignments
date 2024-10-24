@@ -5,9 +5,11 @@
 
 class Item {
 public:
+    Item(std::string name)
+    : _item_name(name){};
     std::string get_item_name();
 private:
-    std::string item_name;
+    std::string _item_name;
 };
 
 

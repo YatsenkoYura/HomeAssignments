@@ -19,7 +19,8 @@ public:
     Item* get_item();
 
     void sing();
-private:
+
+protected:
     Song _song;
     std::string _worldview;
     uint _fuel;

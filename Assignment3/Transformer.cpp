@@ -1,9 +1,6 @@
 #include "Transformer.h"
 #include<iostream>
-Transformer::~Transformer() {
-    // Реализация может оставаться пустой, если нет динамических ресурсов для освобождения.
-}
-
+Transformer::~Transformer() {}
 void Transformer::set_fuel(uint fuel) {
     _fuel = fuel;
 }
@@ -21,5 +18,5 @@ Item* Transformer::get_item() {
 }
 
 void Transformer::sing() {
-    std::cout << _name << " is singing " << _song.get_name() << " by " << _song.get_author() << std::endl;
+    std::cout << _name << " поет " << _song.get_name() << " от " << _song.get_author() << std::endl;
 }

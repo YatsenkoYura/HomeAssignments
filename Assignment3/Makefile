@@ -1,24 +1,50 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -pthread
 
-# Списки исходных и объектных файлов
-SOURCES = main.cpp Transformer.cpp Item.cpp Song.cpp
-OBJECTS = $(SOURCES:.cpp=.o)  # объектные файлы соответствуют исходным файлам
+GTEST_LIB = -lgtest -lgtest_main
 
-# Название конечного исполняемого файла
-EXECUTABLE = transformer_app
+MAIN_SOURCES = main.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp Song.cpp Transformer.cpp
 
-# Правило, описывающее сборку исполняемого файла
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+MAIN_OBJECTS = main.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
 
-# Правило для компиляции .cpp в .o
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+TEST_SOURCES = google_test.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp Song.cpp Transformer.cpp
 
-# Очистка промежуточных и конечных файлов
+TEST_OBJECTS = google_test.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
+
+EXECUTABLE = main_program
+TEST_EXECUTABLE = test_suite
+
+all: $(EXECUTABLE) $(TEST_EXECUTABLE)
+
+$(EXECUTABLE): $(MAIN_OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $(MAIN_OBJECTS)
+
+$(TEST_EXECUTABLE): $(TEST_OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $(TEST_OBJECTS) $(GTEST_LIB)
+
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
+
+google_test.o: google_test.cpp
+	$(CXX) $(CXXFLAGS) -c google_test.cpp -o google_test.o
+
+Bumblebee.o: Bumblebee.cpp
+	$(CXX) $(CXXFLAGS) -c Bumblebee.cpp -o Bumblebee.o
+
+Prime.o: Prime.cpp
+	$(CXX) $(CXXFLAGS) -c Prime.cpp -o Prime.o
+
+Liege_maximo.o: Liege_maximo.cpp
+	$(CXX) $(CXXFLAGS) -c Liege_maximo.cpp -o Liege_maximo.o
+
+Item.o: Item.cpp
+	$(CXX) $(CXXFLAGS) -c Item.cpp -o Item.o
+
+Song.o: Song.cpp
+	$(CXX) $(CXXFLAGS) -c Song.cpp -o Song.o
+
+Transformer.o: Transformer.cpp
+	$(CXX) $(CXXFLAGS) -c Transformer.cpp -o Transformer.o
+
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
-
-# .PHONY указывает, что "clean" - это не файл, а цель
-.PHONY: clean
+	rm -f $(MAIN_OBJECTS) $(TEST_OBJECTS) $(EXECUTABLE) $(TEST_EXECUTABLE)
