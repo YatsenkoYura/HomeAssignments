@@ -8,7 +8,7 @@
 class Transformer {
 public:
     Transformer(std::string name, std::string worldview, Song song)
-            : _name(name), _worldview(worldview), _song(song), _fuel(0), _item(nullptr){
+        : _song(song), _worldview(worldview), _fuel(0), _item(nullptr), _name(name) {
     }
     ~Transformer();
 
