@@ -3,10 +3,12 @@
 
 #include "Transformer.h"
 #include <string>
-class Prime : public Transformer{
+class Prime : public Transformer
+{
 public:
     Prime(Song song, std::string role, Item* item)
-    : Transformer("Optimus Prime", "Good", song), _role(role){
+        : Transformer("Optimus Prime", "Good", song), _role(role)
+    {
         set_item(item);
         set_fuel(200);
     }

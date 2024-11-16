@@ -2,10 +2,11 @@
 #define ___SONG_H
 #include "string"
 
-class Song {
+class Song
+{
 public:
     Song(std::string author, std::string melody, std::string name)
-    : _name(name), _author(author), _melody(melody){};
+        : _name(name), _author(author), _melody(melody) {};
     std::string get_name();
     std::string get_author();
     std::string get_melody();

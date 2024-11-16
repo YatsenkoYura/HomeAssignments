@@ -3,11 +3,13 @@
 
 #include "Transformer.h"
 
-class Liege_maximo : public Transformer{
+class Liege_maximo : public Transformer
+{
 public:
     Liege_maximo(Song song, uint speed)
-    : Transformer("Liege Maximo", "Lawful evil", song), _speed(speed){
-            set_fuel(100);
+        : Transformer("Liege Maximo", "Lawful evil", song), _speed(speed)
+    {
+        set_fuel(100);
     }
 
     void run(uint speed);

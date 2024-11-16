@@ -1,17 +1,21 @@
 #include "Prime.h"
 
-std::string Prime::get_role() {
+std::string Prime::get_role()
+{
     return _role;
 }
 
-std::string Prime::get_rank() {
+std::string Prime::get_rank()
+{
     return _rank;
 }
 
-void Prime::set_role(std::string role){
+void Prime::set_role(std::string role)
+{
     _role = role;
 }
 
-bool Prime::general_ability() {
+bool Prime::general_ability()
+{
     return 1;
 }

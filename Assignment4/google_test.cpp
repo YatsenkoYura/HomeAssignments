@@ -5,19 +5,22 @@
 #include "Item.h"
 #include "Song.h"
 
-TEST(SongTest, SongGetters) {
+TEST(SongTest, SongGetters)
+{
     Song song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel");
     EXPECT_EQ(song.get_author(), "Yasuo-P");
     EXPECT_EQ(song.get_name(), "Electric Angel");
     EXPECT_EQ(song.get_melody(), "lu-lululu-lu-lu");
 }
 
-TEST(ItemTest, ItemGetters) {
+TEST(ItemTest, ItemGetters)
+{
     Item item("Rock guitar");
     EXPECT_EQ(item.get_item_name(), "Rock guitar");
 }
 
-TEST(PrimeTest, PrimeAttributes) {
+TEST(PrimeTest, PrimeAttributes)
+{
     Item item_prime("sign 'STOP'");
     Prime prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", &item_prime);
 
@@ -27,7 +30,8 @@ TEST(PrimeTest, PrimeAttributes) {
     EXPECT_EQ(prime.get_role(), "Commander");
 }
 
-TEST(BumblebeeTest, BumblebeeAttributes) {
+TEST(BumblebeeTest, BumblebeeAttributes)
+{
     Item item_bumb("Rock guitar");
     Bumblebee bumblebee(Song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel"), "Runner", 10, &item_bumb);
 
@@ -37,7 +41,8 @@ TEST(BumblebeeTest, BumblebeeAttributes) {
     EXPECT_EQ(bumblebee.get_role(), "Scout");
 }
 
-TEST(LiegeMaximoTest, LiegeMaximoAttributes) {
+TEST(LiegeMaximoTest, LiegeMaximoAttributes)
+{
     Liege_maximo liege_maximo(Song("SeeU", "tu-lulu-pupu-ru", "Jangsanbeom"), 20);
 
     EXPECT_TRUE(liege_maximo.solo_ability());
@@ -58,7 +63,8 @@ TEST(TransformerTest, TestOverride)
     EXPECT_EQ(TransformerTestFuel > TransformerTest, 1);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

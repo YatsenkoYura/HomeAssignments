@@ -5,10 +5,12 @@
 #include "Song.h"
 
 
-class Transformer {
+class Transformer
+{
 public:
     Transformer(std::string name, std::string worldview, Song song)
-        : _song(song), _worldview(worldview), _fuel(0), _item(nullptr), _name(name) {
+        : _song(song), _worldview(worldview), _fuel(0), _item(nullptr), _name(name)
+    {
     }
     ~Transformer();
 
