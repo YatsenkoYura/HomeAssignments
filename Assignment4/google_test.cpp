@@ -47,6 +47,17 @@ TEST(LiegeMaximoTest, LiegeMaximoAttributes) {
     EXPECT_TRUE(liege_maximo.get_status_disguise());
 }
 
+TEST(TransformerTest, TestOverride)
+{
+    Transformer TransformerTest = Transformer("TestClass", "Good", Song("Yuyoyuppe", "Thunder Girl", "tu-tu-ti--ti-ty"));
+    std::ostringstream out;
+    out << TransformerTest;
+    EXPECT_EQ(out.str(), "Fuel: 0 Name: TestClass Worlview: Good\n");
+    Transformer TransformerTestFuel = TransformerTest;
+    TransformerTestFuel.set_fuel(150);
+    EXPECT_EQ(TransformerTestFuel > TransformerTest, 1);
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
