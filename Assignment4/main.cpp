@@ -11,7 +11,7 @@ int main()
 {
     Item item_prime = Item("sign 'STOP'");
     Item* item_link_prime = &item_prime;
-    Prime prime = Prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+    Prime prime =  Prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
     prime.sing();
 
     Item item_bumb = Item("Rock guitar");
