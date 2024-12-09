@@ -5,6 +5,16 @@
 
 class Liege_maximo : public Transformer{
 public:
+    std::string role() const
+    {
+        return _role;
+    }
+
+    void set_role(const std::string& role)
+    {
+        _role = role;
+    }
+
     Liege_maximo(Song song, uint speed)
     : Transformer("Liege Maximo", "Lawful evil", song), _speed(speed){
             set_fuel(100);

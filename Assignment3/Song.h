@@ -4,6 +4,24 @@
 
 class Song {
 public:
+
+    void set_name(const std::string& name)
+    {
+        _name = name;
+    }
+
+
+    void set_author(const std::string& author)
+    {
+        _author = author;
+    }
+
+
+    void set_melody(const std::string& melody)
+    {
+        _melody = melody;
+    }
+
     Song(std::string author, std::string melody, std::string name)
     : _name(name), _author(author), _melody(melody){};
     std::string get_name();

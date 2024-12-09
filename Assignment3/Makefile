@@ -12,7 +12,7 @@ TEST_SOURCES = google_test.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp
 TEST_OBJECTS = google_test.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
 
 EXECUTABLE = main_program
-TEST_EXECUTABLE = test_suite
+TEST_EXECUTABLE = test
 
 all: $(EXECUTABLE) $(TEST_EXECUTABLE)
 

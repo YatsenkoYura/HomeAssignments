@@ -9,4 +9,4 @@ make
 # Запуск 
 ./main_program
 # Запуск общего теста
-./test_suite
+./test

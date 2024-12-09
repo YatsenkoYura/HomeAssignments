@@ -5,6 +5,11 @@
 #include <string>
 class Prime : public Transformer{
 public:
+    void set_rank(const std::string& rank)
+    {
+        _rank = rank;
+    }
+
     Prime(Song song, std::string role, Item* item)
     : Transformer("Optimus Prime", "Good", song), _role(role){
         set_item(item);

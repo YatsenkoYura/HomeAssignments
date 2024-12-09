@@ -9,4 +9,4 @@ make
 # Запуск 
 ./assign4
 # Запуск общего теста
-./test_suite
+./test

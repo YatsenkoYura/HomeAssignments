@@ -5,6 +5,11 @@
 
 class Item {
 public:
+    void set_item_name(const std::string& item_name)
+    {
+        _item_name = item_name;
+    }
+
     Item(std::string name)
     : _item_name(name){};
     std::string get_item_name();
