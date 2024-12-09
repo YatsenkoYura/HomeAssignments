@@ -7,6 +7,11 @@
 
 class Transformer {
 public:
+    Transformer(std::string name, std::string worldview, Song song)
+        : _name(name), _worldview(worldview), _song(song), _fuel(0), _item(nullptr)  {
+    }
+    ~Transformer();
+
     Song song() const
     {
         return _song;
@@ -36,12 +41,6 @@ public:
     {
         _name = name;
     }
-
-    Transformer(std::string name, std::string worldview, Song song)
-        : _song(song), _worldview(worldview), _fuel(0), _item(nullptr), _name(name) {
-    }
-    ~Transformer();
-
     void set_fuel(uint fuel);
     uint get_fuel();
 
@@ -51,9 +50,9 @@ public:
     void sing();
 
 protected:
-    Song _song;
-    std::string _worldview;
     std::string _name;
+    std::string _worldview;
+    Song _song;
 
     uint _fuel;
     Item* _item;
