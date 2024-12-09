@@ -11,13 +11,15 @@ TEST_SOURCES = google_test.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp
 
 TEST_OBJECTS = google_test.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
 
-EXECUTABLE = assign4
+EXECUTABLE = main_program
 TEST_EXECUTABLE = test
 
-all: $(EXECUTABLE) $(TEST_EXECUTABLE)
+all: $(EXECUTABLE) test
 
 $(EXECUTABLE): $(MAIN_OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $(MAIN_OBJECTS)
+
+test: $(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $(TEST_OBJECTS) $(GTEST_LIB)
