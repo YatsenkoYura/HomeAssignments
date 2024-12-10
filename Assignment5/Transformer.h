@@ -1,70 +1,59 @@
-
 #ifndef ___TRANSFORMER_H
 #define ___TRANSFORMER_H
+
+#include <iostream>
+#include <string>
 #include "Item.h"
 #include "Song.h"
 
-
-class Transformer{
+class Transformer
+{
 public:
-    Song song() const
-    {
-        return _song;
-    }
+    Transformer(std::string name, std::string worldview, Song song);
+    Transformer(std::string name, std::string worldview);
+    Transformer(std::string name);
 
-    void set_song(const Song& song)
-    {
-        _song = song;
-    }
+    virtual ~Transformer();
 
-    std::string worldview() const
-    {
-        return _worldview;
-    }
+    Song song();
+    void set_song(Song song);
 
-    void set_worldview(const std::string& worldview)
-    {
-        _worldview = worldview;
-    }
+    std::string worldview();
+    void set_worldview(std::string& worldview);
 
-    std::string name() const
-    {
-        return _name;
-    }
-
-    void set_name(const std::string& name)
-    {
-        _name = name;
-    }
-    Transformer(std::string name, std::string worldview, Song song)
-        : _song(song), _worldview(worldview), _fuel(0), _item(nullptr), _name(name)
-    {
-    }
-    ~Transformer();
+    std::string name();
+    void set_name(std::string& name);
 
     void set_fuel(uint fuel);
     uint get_fuel();
 
     void set_item(Item* item);
     Item* get_item();
+    virtual void transform() const {
+        std::cout << "Transformer transforming" << std::endl;
+    }
 
+    virtual void openFire() const {
+        std::cout << "Transformer opening fire" << std::endl;
+    }
+
+    virtual void radio() const {
+        std::cout << "Transformer using radio" << std::endl;
+    }
     void sing();
 
-    bool operator<(const Transformer& other) const;
-    bool operator>(const Transformer& other) const;
-    bool operator==(const Transformer& other) const;
-    bool operator!=(const Transformer& other) const;
-    bool operator<=(const Transformer& other) const;
-    bool operator>=(const Transformer& other) const;
-    friend std::ostream& operator<<(std::ostream& os, const Transformer& t);
+    bool operator>(Transformer& other);
+    bool operator<(Transformer& other);
+    bool operator==(Transformer& other);
+
+    friend std::ostream& operator<<(std::ostream& os, Transformer& transformer);
 
 protected:
-    Song _song;
+    std::string _name;
     std::string _worldview;
+    Song _song;
     uint _fuel;
     Item* _item;
-    std::string _name;
 };
 
-
-#endif //___TRANSFORMER_H
+#endif // ___TRANSFORMER_H

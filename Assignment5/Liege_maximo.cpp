@@ -5,7 +5,7 @@ void Liege_maximo::run(uint speed)
     //Liege run
 }
 
-uint Liege_maximo::get_speed() const
+uint Liege_maximo::get_speed()
 {
     return _speed;
 }
@@ -26,5 +26,17 @@ bool Liege_maximo::get_status_disguise()
 
 bool Liege_maximo::solo_ability()
 {
-    return true;
+    return 1;
 };
+
+void Liege_maximo::transform() const {
+    std::cout << "Liege_maximo performing transform()" << std::endl;
+}
+
+void Liege_maximo::openFire() const {
+    std::cout << "Liege_maximo performing openFire()" << std::endl;
+}
+
+void Liege_maximo::radio() const {
+    std::cout << "Liege_maximo performing radio()" << std::endl;
+}

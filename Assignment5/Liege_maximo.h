@@ -6,6 +6,18 @@
 class Liege_maximo : public Transformer
 {
 public:
+
+
+    Liege_maximo(Song song, uint speed)
+        : Transformer("Liege Maximo", "Lawful evil", song), _speed(speed)
+    {
+        set_fuel(100);
+    }
+
+    void transform() const override;
+    void openFire() const override;
+    void radio() const override;
+
     std::string role() const
     {
         return _role;
@@ -15,15 +27,7 @@ public:
     {
         _role = role;
     }
-
-    Liege_maximo(Song song, uint speed)
-        : Transformer("Liege Maximo", "Lawful evil", song), _speed(speed)
-    {
-        set_fuel(100);
-    }
-
     void run(uint speed);
-    uint get_speed() const;
     void set_status_disguise(bool new_status);
     void set_speed(uint new_speed);
     uint get_speed();

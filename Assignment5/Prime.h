@@ -6,16 +6,24 @@
 class Prime : public Transformer
 {
 public:
-    void set_rank(const std::string& rank)
-    {
-        _rank = rank;
-    }
+
+
     Prime(Song song, std::string role, Item* item)
         : Transformer("Optimus Prime", "Good", song), _role(role)
     {
         set_item(item);
         set_fuel(200);
     }
+
+    void transform() const override;
+    void openFire() const override;
+    void radio() const override;
+
+    void set_rank(const std::string& rank)
+    {
+        _rank = rank;
+    }
+
     std::string get_rank();
 
     void set_role(std::string role);

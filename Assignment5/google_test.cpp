@@ -52,16 +52,107 @@ TEST(LiegeMaximoTest, LiegeMaximoAttributes)
     EXPECT_TRUE(liege_maximo.get_status_disguise());
 }
 
-TEST(TransformerTest, TestOverride)
+TEST(TransformerTest, GreaterOperator)
 {
-    Transformer TransformerTest = Transformer("TestClass", "Good", Song("Yuyoyuppe", "Thunder Girl", "tu-tu-ti--ti-ty"));
-    std::ostringstream out;
-    out << TransformerTest;
-    EXPECT_EQ(out.str(), "Fuel: 0 Name: TestClass Worlview: Good\n");
-    Transformer TransformerTestFuel = TransformerTest;
-    TransformerTestFuel.set_fuel(150);
-    EXPECT_EQ(TransformerTestFuel > TransformerTest, 1);
+    Item item_prime("sign STOP");
+    Item* item_link_prime = &item_prime;
+    Item item_bumb("Rock guitar");
+    Item* item_link_bumb = &item_bumb;
+
+    Prime prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+    Bumblebee bumblebee(Song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel"), "Runner", 10, item_link_bumb);
+
+    EXPECT_TRUE(bumblebee > prime);
+    EXPECT_FALSE(prime > bumblebee);
 }
+
+TEST(TransformerTest, LessOperator)
+{
+    Item item_prime("sign STOP");
+    Item* item_link_prime = &item_prime;
+    Item item_bumb("Rock guitar");
+    Item* item_link_bumb = &item_bumb;
+
+    Prime prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+    Bumblebee bumblebee(Song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel"), "Runner", 10, item_link_bumb);
+
+    EXPECT_TRUE(prime < bumblebee);
+    EXPECT_FALSE(bumblebee < prime);
+}
+
+TEST(TransformerTest, EqualOperator)
+{
+    Item item_prime("sign STOP");
+    Item* item_link_prime = &item_prime;
+    Prime prime1(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+    Prime prime2(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+
+    EXPECT_TRUE(prime1 == prime2);
+    prime2.set_fuel(150);
+    EXPECT_FALSE(prime1 == prime2);
+}
+
+TEST(TransformerTest, StreamInsertionOperator)
+{
+    Item item_prime("sign STOP");
+    Item* item_link_prime = &item_prime;
+    Prime prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", item_link_prime);
+
+    std::ostringstream output;
+    output << prime;
+
+    std::string expected_output = "Transformer: Name: Optimus Prime, Worldview: Good, Song: Rolling girl by Wowaka, Fuel: 200";
+    EXPECT_EQ(output.str(), expected_output);
+}
+
+
+void TestTransformerMethods(Transformer* transformer, const std::string& expected_class_name) {
+    testing::internal::CaptureStdout();
+    transformer->transform();
+    transformer->openFire();
+    transformer->radio();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_NE(output.find(expected_class_name + " performing transform()"), std::string::npos);
+    EXPECT_NE(output.find(expected_class_name + " performing openFire()"), std::string::npos);
+    EXPECT_NE(output.find(expected_class_name + " performing radio()"), std::string::npos);
+}
+
+TEST(PrimeTest, VirtualMethods)
+{
+    Prime prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", nullptr);
+    TestTransformerMethods(&prime, "Prime");
+}
+
+TEST(BumblebeeTest, VirtualMethods)
+{
+    Bumblebee bumblebee(Song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel"), "Runner", 10, nullptr);
+    TestTransformerMethods(&bumblebee, "Bumblebee");
+}
+
+TEST(LiegeMaximoTest, VirtualMethods)
+{
+    Liege_maximo liege_maximo(Song("SeeU", "tu-lulu-pupu-ru", "Jangsanbeom"), 20);
+    TestTransformerMethods(&liege_maximo, "Liege_maximo");
+}
+
+TEST(TransformerTest, BasePointerVirtualMethodCalls)
+{
+    std::vector<Transformer*> transformers = {
+        new Prime(Song("Wowaka", "tu-tutu-tuutuu", "Rolling girl"), "Leader", nullptr),
+        new Bumblebee(Song("Yasuo-P", "lu-lululu-lu-lu", "Electric Angel"), "Runner", 10, nullptr),
+        new Liege_maximo(Song("SeeU", "tu-lulu-pupu-ru", "Jangsanbeom"), 20)
+    };
+
+    std::vector<std::string> class_names = { "Prime", "Bumblebee", "Liege_maximo" };
+
+    for (size_t i = 0; i < transformers.size(); ++i) {
+        TestTransformerMethods(transformers[i], class_names[i]);
+        delete transformers[i];
+    }
+}
+
+
 
 int main(int argc, char **argv)
 {

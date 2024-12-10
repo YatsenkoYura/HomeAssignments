@@ -17,10 +17,22 @@ void Bumblebee::set_role(std::string role)
 
 bool Bumblebee::infantry_ability()
 {
-    return true;
+    return 1;
 }
 
 void Bumblebee::jump(uint force_jump)
 {
     //juuuump
+}
+
+void Bumblebee::transform() const {
+    std::cout << "Bumblebee performing transform()" << std::endl;
+}
+
+void Bumblebee::openFire() const {
+    std::cout << "Bumblebee performing openFire()" << std::endl;
+}
+
+void Bumblebee::radio() const {
+    std::cout << "Bumblebee performing radio()" << std::endl;
 }
