@@ -14,8 +14,8 @@ public:
     Transformer(std::string name);
 
     virtual ~Transformer();
-
     Song song();
+
     void set_song(Song song);
 
     std::string worldview();
@@ -40,6 +40,7 @@ public:
     virtual void radio() const {
         std::cout << "Transformer using radio" << std::endl;
     }
+
     void sing();
 
     bool operator>(Transformer& other);

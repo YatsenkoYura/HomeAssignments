@@ -18,6 +18,25 @@ public:
     ~myTemplateClass();
 };
 
+template<>
+class myTemplateClass<int>{
+    public:
+        myTemplateClass(int obj, int num, std::vector<float> vect);
+        ~myTemplateClass();
+        bool foo(){
+          return true;
+        };
+};
 
+template<>
+class myTemplateClass<double>{
+  public:
+    myTemplateClass(double obj, int num, std::vector<float> vect);
+    ~myTemplateClass();
+    bool foo(){
+      return false;
+    };
+};
 
+#include "myTemplateClass.tpp"
 #endif //MYTEMPLATECLASS_H

@@ -1,5 +1,11 @@
-//
-// Created by kano on 14.12.2024.
-//
+#ifndef TEMPLATECLASS_TPP
+#define TEMPLATECLASS_TPP
 
-#include "myTemplateClass.h"
+#include "myTemplateClass.hpp"
+
+template <typename T>
+bool myTemplateClass<T>::foo(){
+    return data.bar(number, vec);
+}
+
+#endif // TEMPLATECLASS_TPP
