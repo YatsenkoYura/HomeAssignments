@@ -15,14 +15,17 @@ public:
 
     myTemplateClass(T obj, int num, std::vector<float> vect)
         : data(obj), number(num), vec(vect) {};
-    ~myTemplateClass();
 };
 
 template<>
 class myTemplateClass<int>{
     public:
-        myTemplateClass(int obj, int num, std::vector<float> vect);
-        ~myTemplateClass();
+        int data;
+        int number;
+        std::vector<float> vec;
+
+        myTemplateClass(int obj, int num, std::vector<float> vect)
+            : data(obj), number(num), vec(vect) {};
         bool foo(){
           return true;
         };
@@ -31,8 +34,9 @@ class myTemplateClass<int>{
 template<>
 class myTemplateClass<double>{
   public:
+    int number;
+    std::vector<float> vec;
     myTemplateClass(double obj, int num, std::vector<float> vect);
-    ~myTemplateClass();
     bool foo(){
       return false;
     };
