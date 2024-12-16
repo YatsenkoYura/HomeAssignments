@@ -1,5 +1,5 @@
 //Yuriy Yatsenko 135624@student.spbu.ru
-//Assignment 3
+//Assignment 5
 
 #include "Prime.h"
 #include "Bumblebee.h"

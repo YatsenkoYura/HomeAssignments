@@ -1,52 +1,42 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -pthread
+PROJECT = main_program
+LIBPROJECT = lib$(PROJECT).a
+TESTPROJECT = test
 
-GTEST_LIB = -lgtest -lgtest_main
+CXX = g++
+A = ar
+AFLAGS = rsv
+CXXFLAGS = -I. -std=c++14 -Wall -pthread -g -fPIC
+LXXFLAGS = $(CXXFLAGS) -L. -l:$(LIBPROJECT)
+LGTESTFLAGS = $(LXXFLAGS) -lgtest -lgtest_main -lpthread
 
 MAIN_SOURCES = main.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp Song.cpp Transformer.cpp
-
-MAIN_OBJECTS = main.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
-
+MAIN_OBJECTS = $(MAIN_SOURCES:.cpp=.o)
 TEST_SOURCES = google_test.cpp Bumblebee.cpp Prime.cpp Liege_maximo.cpp Item.cpp Song.cpp Transformer.cpp
+TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
+HEADERS = $(wildcard *.h)
 
-TEST_OBJECTS = google_test.o Bumblebee.o Prime.o Liege_maximo.o Item.o Song.o Transformer.o
+.PHONY: default all clean cleanall
 
-EXECUTABLE = main_program
-TEST_EXECUTABLE = test
+default: all
 
-all: $(EXECUTABLE) test
+all: $(PROJECT) $(TESTPROJECT)
 
-$(EXECUTABLE): $(MAIN_OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $(MAIN_OBJECTS)
+%.o: %.cpp $(HEADERS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-test: $(TEST_EXECUTABLE)
+$(LIBPROJECT): $(MAIN_OBJECTS)
+	$(A) $(AFLAGS) $@ $^
 
-$(TEST_EXECUTABLE): $(TEST_OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $(TEST_OBJECTS) $(GTEST_LIB)
+$(PROJECT): main.o $(LIBPROJECT)
+	$(CXX) -o $@ main.o $(LXXFLAGS)
 
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
+$(TESTPROJECT): $(LIBPROJECT) $(TEST_OBJECTS)
+	$(CXX) -o $@ $(TEST_OBJECTS) $(LGTESTFLAGS)
 
-google_test.o: google_test.cpp
-	$(CXX) $(CXXFLAGS) -c google_test.cpp -o google_test.o
-
-Bumblebee.o: Bumblebee.cpp
-	$(CXX) $(CXXFLAGS) -c Bumblebee.cpp -o Bumblebee.o
-
-Prime.o: Prime.cpp
-	$(CXX) $(CXXFLAGS) -c Prime.cpp -o Prime.o
-
-Liege_maximo.o: Liege_maximo.cpp
-	$(CXX) $(CXXFLAGS) -c Liege_maximo.cpp -o Liege_maximo.o
-
-Item.o: Item.cpp
-	$(CXX) $(CXXFLAGS) -c Item.cpp -o Item.o
-
-Song.o: Song.cpp
-	$(CXX) $(CXXFLAGS) -c Song.cpp -o Song.o
-
-Transformer.o: Transformer.cpp
-	$(CXX) $(CXXFLAGS) -c Transformer.cpp -o Transformer.o
+test: $(TESTPROJECT)
 
 clean:
-	rm -f $(MAIN_OBJECTS) $(TEST_OBJECTS) $(EXECUTABLE) $(TEST_EXECUTABLE)
+	rm -f *.o
+
+cleanall: clean
+	rm -f $(PROJECT) $(LIBPROJECT) $(TESTPROJECT)

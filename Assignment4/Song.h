@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
+
 #ifndef ___SONG_H
 #define ___SONG_H
 #include "string"

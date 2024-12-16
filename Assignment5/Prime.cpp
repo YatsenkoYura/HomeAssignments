@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 5
+
 #include "Prime.h"
 
 std::string Prime::get_role()

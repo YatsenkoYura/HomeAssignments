@@ -1,4 +1,5 @@
-
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 3
 #ifndef ___ITEM_H
 #define ___ITEM_H
 #include "string"

@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
+
 #ifndef ___LIEGE_MAXIMO_H
 #define ___LIEGE_MAXIMO_H
 

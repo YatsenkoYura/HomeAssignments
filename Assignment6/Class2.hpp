@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 6
 #ifndef CLASS2_H
 #define CLASS2_H
 

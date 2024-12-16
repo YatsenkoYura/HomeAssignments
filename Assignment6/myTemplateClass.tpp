@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 6
 #ifndef TEMPLATECLASS_TPP
 #define TEMPLATECLASS_TPP
 

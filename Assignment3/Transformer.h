@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 3
 
 #ifndef ___TRANSFORMER_H
 #define ___TRANSFORMER_H
@@ -12,35 +14,15 @@ public:
     }
     ~Transformer();
 
-    Song song() const
-    {
-        return _song;
-    }
+    Song get_song();
+    void set_song(Song song);
 
-    void set_song(const Song& song)
-    {
-        _song = song;
-    }
+    std::string get_worldview();
+    void set_worldview(const std::string& worldview);
 
-    std::string worldview() const
-    {
-        return _worldview;
-    }
+    std::string get_name();
+    void set_name(const std::string& name);
 
-    void set_worldview(const std::string& worldview)
-    {
-        _worldview = worldview;
-    }
-
-    std::string name() const
-    {
-        return _name;
-    }
-
-    void set_name(const std::string& name)
-    {
-        _name = name;
-    }
     void set_fuel(uint fuel);
     uint get_fuel();
 

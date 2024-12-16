@@ -1,4 +1,5 @@
-
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 5
 
 #ifndef ___BUMBLEBEE_H
 #define ___BUMBLEBEE_H

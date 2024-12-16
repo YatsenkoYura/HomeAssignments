@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 5
+
 #include "Item.h"
 
 std::string Item::get_item_name()

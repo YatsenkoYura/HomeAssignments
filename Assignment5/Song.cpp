@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 5
 #include "Song.h"
 
 std::string Song::get_author()

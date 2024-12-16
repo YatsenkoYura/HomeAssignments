@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
+
 #include "Transformer.h"
 #include <iostream>
 
@@ -12,7 +15,7 @@ Transformer::Transformer(std::string name)
 
 Transformer::~Transformer() {}
 
-Song Transformer::song()
+Song Transformer::get_song()
 {
     return _song;
 }
@@ -22,7 +25,7 @@ void Transformer::set_song(Song song)
     _song = song;
 }
 
-std::string Transformer::worldview()
+std::string Transformer::get_worldview()
 {
     return _worldview;
 }
@@ -32,7 +35,7 @@ void Transformer::set_worldview(std::string& worldview)
     _worldview = worldview;
 }
 
-std::string Transformer::name()
+std::string Transformer::get_name()
 {
     return _name;
 }

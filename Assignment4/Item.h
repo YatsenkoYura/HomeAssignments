@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
 
 #ifndef ___ITEM_H
 #define ___ITEM_H

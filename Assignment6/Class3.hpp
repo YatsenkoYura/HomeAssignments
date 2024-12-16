@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 6
 #ifndef CLASS3_HPP
 #define CLASS3_HPP
 

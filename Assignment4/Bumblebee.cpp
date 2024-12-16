@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
+
 #include "Bumblebee.h"
 
 std::string Bumblebee::get_role()

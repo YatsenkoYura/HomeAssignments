@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 4
+
 #ifndef ___TRANSFORMER_H
 #define ___TRANSFORMER_H
 
@@ -15,13 +18,13 @@ public:
 
     ~Transformer();
 
-    Song song();
+    Song get_song();
     void set_song(Song song);
 
-    std::string worldview();
+    std::string get_worldview();
     void set_worldview(std::string& worldview);
 
-    std::string name();
+    std::string get_name();
     void set_name(std::string& name);
 
     void set_fuel(uint fuel);

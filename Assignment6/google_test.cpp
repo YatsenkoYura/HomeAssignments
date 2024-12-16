@@ -1,3 +1,5 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 6
 #include "Class1.hpp"
 #include "Class2.hpp"
 #include "Class3.hpp"

@@ -1,3 +1,6 @@
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 3
+
 #include "Liege_maximo.h"
 
 void Liege_maximo::run(uint speed) {

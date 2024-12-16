@@ -1,4 +1,5 @@
-
+//Yuriy Yatsenko 135624@student.spbu.ru
+//Assignment 6
 #ifndef MYTEMPLATECLASS_H
 #define MYTEMPLATECLASS_H
 
@@ -34,9 +35,11 @@ class myTemplateClass<int>{
 template<>
 class myTemplateClass<double>{
   public:
+    double data;
     int number;
     std::vector<float> vec;
-    myTemplateClass(double obj, int num, std::vector<float> vect);
+    myTemplateClass(double obj, int num, std::vector<float> vect)
+        : data(obj), number(num), vec(vect) {};
     bool foo(){
       return false;
     };
